@@ -338,18 +338,10 @@ torchvision
 opencv-python
 matplotlib
 pillow
-numpy
+numpy==1.25.0
 gdown
 rembg
-
-
-手动安装依赖
-pip3 install uvicorn  -i https://pypi.tuna.tsinghua.edu.cn/simple
-pip3 install fastapi  -i https://pypi.tuna.tsinghua.edu.cn/simple
-pip3 install pymysql  -i https://pypi.tuna.tsinghua.edu.cn/simple
-
-
-
-删除numpy依赖，安装1.x版本
-pip3 install numpy==1.25.0
+uvicorn
+fastapi
+pymysql
 
