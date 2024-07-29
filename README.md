@@ -314,3 +314,42 @@ Attu是 Milvus 的高效开源管理工具，提供了GUI显示
 原文: https://blog.csdn.net/AndCo/article/details/129316873?spm=1001.2014.3001.5501
 
 更多文章可以关注 **海鸥技术部落**公众号
+
+
+安装注意点
+python 3.11.4
+
+安装依赖
+yum install mesa-libGL mesa-libGLU
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64
+yum install xz xz-devel -y
+
+
+安装python
+./configure --prefix=/usr/local/python3 --with-openssl=/usr/local/openssl --with-lzma
+
+
+
+python依赖
+pymilvus
+towhee==0.8.0
+torch
+torchvision
+opencv-python
+matplotlib
+pillow
+numpy
+gdown
+rembg
+
+
+手动安装依赖
+pip3 install uvicorn  -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip3 install fastapi  -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip3 install pymysql  -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+
+
+删除numpy依赖，安装1.x版本
+pip3 install numpy==1.25.0
+
