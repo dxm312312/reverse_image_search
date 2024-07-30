@@ -345,3 +345,37 @@ uvicorn
 fastapi
 pymysql
 
+
+镜像制造
+拉取centos镜像
+docker pull centos:7
+启动镜像
+docker run -d centos:7 /sbin/init
+安装必要的依赖
+
+yum install mesa-libGL mesa-libGLU
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64
+
+yum install xz xz-devel -y
+
+openssl
+
+python3.11.4
+./configure --prefix=/usr/local/python3 --with-openssl=/usr/local/openssl --with-lzma
+
+将代码复制到容器中，pip3下载依赖
+
+新建启动脚本 run.sh
+#!/bin/bash
+source /home/image/bin/activate
+exec python3 /home/image/server/reverse_image_search_main.py
+
+给run.sh赋权
+
+保存为新的镜像
+docker commit -c "ENTRYPOINT [\"/home/image/run.sh\"]" sleepy_murdock image_search:v1.0
+
+启动镜像
+
+
+
