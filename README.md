@@ -375,7 +375,8 @@ exec python3 /home/image/server/reverse_image_search_main.py
 保存为新的镜像
 docker commit -c "ENTRYPOINT [\"/home/image/run.sh\"]" sleepy_murdock image_search:v1.0
 
-启动镜像
+启动镜像  端口映射 
+docker run -d -p 5000:5000 --name image_search image_search:v1.0
 
 
 
